@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
+
+import { usePosts } from "../../api";
 
 export const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { data, error, isLoading } = usePosts();
+  console.log(data)
+  return <div>Home</div>;
+};
