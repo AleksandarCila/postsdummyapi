@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { Navbar } from "../Navbar";
+import { PageWrapper,LayoutWrapper } from "./styles";
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -8,9 +9,9 @@ type LayoutProps = {
 
 export const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <div>
+    <LayoutWrapper>
       <Navbar />
-      {children}
-    </div>
+      <PageWrapper>{children}</PageWrapper>
+    </LayoutWrapper>
   );
 };
