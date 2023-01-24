@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import { Link } from "react-router-dom";
+
 import {
   PostPreviewWrapper,
   PostImage,
@@ -8,9 +10,10 @@ import {
   PostDate,
   PostDateLikesContainer,
   LikesContainer,
-  PostOwner
+  PostOwner,
 } from "./styles";
 import { PostTags } from "../PostTags";
+
 import { AiFillHeart } from "react-icons/ai";
 
 import { PostPreview } from "../../../Models";
@@ -25,7 +28,9 @@ export const PostPreviewComponent: FC<PostPreviewProps> = ({ post }) => {
     <PostPreviewWrapper>
       <PostImage src={post.image} alt={post.text.slice(0, 20)} />
       <PostDetails>
-        <PostTitle>{post.text}</PostTitle>
+        <Link to={`/${post.id}`}>
+          <PostTitle>{post.text}</PostTitle>
+        </Link>
         <PostDateLikesContainer>
           <PostDate>{new Date(post.publishDate).toDateString()}</PostDate>
           <LikesContainer>

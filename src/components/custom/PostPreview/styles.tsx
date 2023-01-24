@@ -40,6 +40,10 @@ export const PostDetails = styled.div`
 export const PostTitle = styled.h3`
   font-weight: bold;
   padding: 10px 0px;
+
+  &:hover {
+    color: ${(props) => `${props.theme.colors.secondary}`};
+  }
 `;
 
 export const PostDateLikesContainer = styled.div`

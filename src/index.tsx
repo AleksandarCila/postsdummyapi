@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import { Home } from "./pages";
+import { Home,Post } from "./pages";
 
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
@@ -24,6 +24,7 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/:id" element={<Post />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
