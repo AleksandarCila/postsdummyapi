@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { usePosts } from "../../api";
 
-import { Layout, Pagination, Title } from "../../components";
+import { Layout, Pagination, Title,Spinner } from "../../components";
 import { PostPreviewList } from "./components";
 
 import { usePagination } from "./hooks";
@@ -14,7 +14,7 @@ export const Home = () => {
     refetch();
   }, [currPage, refetch]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner/>;
 
   if (error) return <div>Error</div>;
 

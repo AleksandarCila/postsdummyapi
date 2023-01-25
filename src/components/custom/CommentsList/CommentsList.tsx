@@ -3,6 +3,7 @@ import { FC } from "react";
 import { usePostComments } from "../../../api";
 
 import { CommentListItem } from "./components";
+import { Spinner } from "../../generic";
 
 type CommentsListProps = {
   postId: string;
@@ -11,7 +12,7 @@ type CommentsListProps = {
 export const CommentsList: FC<CommentsListProps> = ({ postId }) => {
   const { data, error, isLoading } = usePostComments(postId);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Spinner/>;
 
   if (error) return <div>Error</div>;
 

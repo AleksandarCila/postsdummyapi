@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { Button } from "../../generic";
 
 import { NavbarWrapper, LogoText, NavLinksWrapper, NavLink } from "./styles";
@@ -7,11 +9,11 @@ export const Navbar = () => {
     <NavbarWrapper>
       <LogoText>DummyApiDemo</LogoText>
       <NavLinksWrapper>
-        <NavLink to="/">
-          Home
-        </NavLink>
+        <NavLink to="/">Home</NavLink>
       </NavLinksWrapper>
-      <Button>New Post</Button>
+      <Link to="/create">
+        <Button>New Post</Button>
+      </Link>
     </NavbarWrapper>
   );
 };
