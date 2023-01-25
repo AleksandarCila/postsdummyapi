@@ -36,7 +36,7 @@ export const PostDisplay: FC<PostDisplayProps> = ({ post }) => {
       <Title title="Comments" />
       <hr style={{ width: "100%" }} />
       <CommentsList postId={post.id} />
-      <NewComment />
+      <NewComment postId={post.id} ownerId={post.owner.id} />
     </PostWrapper>
   );
 };
