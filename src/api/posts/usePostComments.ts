@@ -5,5 +5,5 @@ import { List,Comment } from "../../Models";
 export const usePostComments = (postId="") => {
   const postUrl = `https://dummyapi.io/data/v1/post/${postId}/comment`;
 
-  return useQuery(["comments"], () => fetchDummyApi<List<Comment>>(postUrl));
+  return useQuery(["comments",postId], () => fetchDummyApi<List<Comment>>(postUrl));
 };
