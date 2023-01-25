@@ -12,6 +12,7 @@ import { Title } from "../Title";
 import { AiFillHeart } from "react-icons/ai";
 
 import { Post } from "../../../Models";
+import { CommentsList } from "../CommentsList";
 
 type PostDisplayProps = {
   post: Post;
@@ -32,6 +33,8 @@ export const PostDisplay: FC<PostDisplayProps> = ({ post }) => {
         <AiFillHeart style={{ fontSize: 20 }} /> {post.likes}
       </LikesContainer>
       <Title title="Comments" />
+      <hr style={{ width: "100%" }} />
+      <CommentsList postId={post.id} />
     </PostWrapper>
   );
 };
