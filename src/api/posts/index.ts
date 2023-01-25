@@ -1,3 +1,5 @@
 export * from './usePosts'
 export * from './usePost'
 export * from './usePostComments'
+export * from './useCreatePost'
+export * from './useUpdatePost'

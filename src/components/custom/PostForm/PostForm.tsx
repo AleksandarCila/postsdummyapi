@@ -12,11 +12,14 @@ import { Button, Input, Textarea } from "../../generic";
 
 import { usePostData } from "./hooks";
 
+import { Post } from "../../../Models";
+
 type PostFormProps = {
   postId?: string;
+  onSubmit: (post: Post) => void;
 };
 
-export const PostForm: FC<PostFormProps> = ({ postId }) => {
+export const PostForm: FC<PostFormProps> = ({ postId, onSubmit }) => {
   const { postState, error, handlePostDataChange } = usePostData(postId);
 
   const handleInputChange = (
@@ -25,8 +28,12 @@ export const PostForm: FC<PostFormProps> = ({ postId }) => {
     handlePostDataChange(e.target.name, e.target.value);
   };
 
+  const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+    onSubmit(postState);
+  };
+
   const isFormDisabled = error.length > 0;
-    console.log(error)
+
   return (
     <PostFormWrapper>
       <FormLabel>Post text: </FormLabel>
@@ -60,7 +67,7 @@ export const PostForm: FC<PostFormProps> = ({ postId }) => {
           />
         </GridItem>
       </TwoColumnGrid>
-      <FormLabel>Post tags: </FormLabel>
+      <FormLabel>Post tags: (separated by comma)</FormLabel>
       <Input
         name="tags"
         placeholder="Enter the post tags"
@@ -69,7 +76,9 @@ export const PostForm: FC<PostFormProps> = ({ postId }) => {
       />
       {isFormDisabled && <ErrorWrapper>{error}</ErrorWrapper>}
       <ButtonWrapper>
-        <Button disabled={isFormDisabled}>Save Post</Button>
+        <Button disabled={isFormDisabled} onClick={handleSubmit}>
+          Save Post
+        </Button>
       </ButtonWrapper>
     </PostFormWrapper>
   );

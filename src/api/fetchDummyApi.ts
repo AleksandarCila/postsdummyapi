@@ -3,7 +3,7 @@ export const fetchDummyApi = async <T>(
   method = "GET",
   body = {}
 ) => {
-  console.log(body);
+  
   const res = await fetch(url, {
     method: method,
     headers: {
