@@ -9,4 +9,5 @@ export type Post = {
   tags: string[];
   publishDate: string;
   owner: UserPreview;
+  [key:string]: any;
 };

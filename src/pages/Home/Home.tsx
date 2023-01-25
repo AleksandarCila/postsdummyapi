@@ -14,6 +14,7 @@ export const Home = () => {
     refetch();
   }, [currPage, refetch]);
 
+
   if (isLoading) return <Spinner/>;
 
   if (error) return <div>Error</div>;
