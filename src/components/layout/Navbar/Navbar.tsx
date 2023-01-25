@@ -1,6 +1,6 @@
-import React from "react";
+import { Button } from "../../generic";
 
-import { NavbarWrapper, LogoText, NavLinksWrapper, NavLink,NewPostButton } from "./styles";
+import { NavbarWrapper, LogoText, NavLinksWrapper, NavLink } from "./styles";
 
 export const Navbar = () => {
   return (
@@ -11,7 +11,7 @@ export const Navbar = () => {
           Home
         </NavLink>
       </NavLinksWrapper>
-      <NewPostButton>New Post</NewPostButton>
+      <Button>New Post</Button>
     </NavbarWrapper>
   );
 };

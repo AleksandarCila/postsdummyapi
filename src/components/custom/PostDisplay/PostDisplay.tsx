@@ -13,6 +13,7 @@ import { AiFillHeart } from "react-icons/ai";
 
 import { Post } from "../../../Models";
 import { CommentsList } from "../CommentsList";
+import { NewComment } from "../NewComment";
 
 type PostDisplayProps = {
   post: Post;
@@ -35,6 +36,7 @@ export const PostDisplay: FC<PostDisplayProps> = ({ post }) => {
       <Title title="Comments" />
       <hr style={{ width: "100%" }} />
       <CommentsList postId={post.id} />
+      <NewComment />
     </PostWrapper>
   );
 };
