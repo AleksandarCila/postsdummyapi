@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const NavbarWrapper = styled.nav`
   width: 100%;
-  height:100px;
+  height:70px;
   padding: 15px;
   position:fixed;
 
