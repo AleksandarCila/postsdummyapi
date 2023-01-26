@@ -14,7 +14,7 @@ export const CommentsList: FC<CommentsListProps> = ({ postId }) => {
 
   if (isLoading) return <Spinner/>;
 
-  if (error) return <div>Error</div>;
+  if (error) return <div>{`Error fetching comments: ${error}`}</div>;
 
   return (
     <div>

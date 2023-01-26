@@ -1,11 +1,9 @@
-import { ChangeEvent, FC, useState } from "react";
+import { FC } from "react";
 
 import { NewCommentWrapper, NewCommentTitle, ButtonWrapper } from "./styles";
 
 import { Textarea, Button, Spinner } from "../../generic";
-import { useCreateComment } from "../../../api/comments";
-
-import { CommentCreate } from "../../../Models";
+import { useCreateCommentForm } from "./hooks";
 
 type NewCommentProps = {
   postId: string;
@@ -13,21 +11,8 @@ type NewCommentProps = {
 };
 
 export const NewComment: FC<NewCommentProps> = ({ postId, ownerId }) => {
-  const [commentData, setCommentData] = useState<CommentCreate>({
-    owner: ownerId,
-    post: postId,
-    message: "",
-  });
-
-  const { mutate, error, isLoading } = useCreateComment(commentData);
-
-  const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setCommentData((prev) => ({ ...prev, message: e.target.value }));
-  };
-
-  const handleSubmit = () => {
-    mutate();
-  };
+  const { commentData, isLoading, handleMessageChange, handleSubmit } =
+    useCreateCommentForm(ownerId, postId);
 
   return (
     <NewCommentWrapper>
