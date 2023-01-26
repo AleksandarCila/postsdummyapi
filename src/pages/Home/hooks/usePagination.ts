@@ -9,7 +9,6 @@ export const usePagination = () => {
 
   const handlePageChanged = (pageIncrease: number) => {
     const newPage = currPage + pageIncrease;
-    // setCurrPage(newPage);
 
     const newParams = new URLSearchParams(search);
     
