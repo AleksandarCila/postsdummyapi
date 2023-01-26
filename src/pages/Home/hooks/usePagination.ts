@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { getCurrPageFromSearch } from "../helpers";
@@ -8,12 +8,18 @@ export const usePagination = () => {
   const [currPage, setCurrPage] = useState(getCurrPageFromSearch(search));
 
   const handlePageChanged = (pageIncrease: number) => {
-    const newParams = new URLSearchParams(search);
     const newPage = currPage + pageIncrease;
-    setCurrPage(newPage);
+    // setCurrPage(newPage);
+
+    const newParams = new URLSearchParams(search);
+    
     newParams.set("page", newPage.toString());
     setSearch(newParams);
   };
 
-  return {currPage,handlePageChanged};
+  useEffect(() => {
+    setCurrPage(getCurrPageFromSearch(search))
+  }, [search, setCurrPage]);
+
+  return { currPage, handlePageChanged };
 };

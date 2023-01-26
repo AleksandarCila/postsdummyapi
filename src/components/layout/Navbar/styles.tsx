@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 
 export const NavbarWrapper = styled.nav`
   width: 100%;
+  height:100px;
   padding: 15px;
+  position:fixed;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${(props) => `${props.theme.colors.secondary}`};
+  box-shadow: 0px 5px 5px ${(props) => `${props.theme.colors.text}50`};
 `;
 
 export const LogoText = styled.div`

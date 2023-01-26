@@ -1,3 +1,5 @@
 export const getCurrPageFromSearch = (search: URLSearchParams) => {
-  return parseInt(search.get("page") || "0");
+  const searchPage = parseInt(search.get("page") || "0");
+  
+  return searchPage > 0 ? searchPage : 0;
 };
