@@ -8,7 +8,7 @@ import {
   ErrorWrapper,
   ButtonWrapper,
 } from "./styles";
-import { Button, Input, Textarea } from "../../generic";
+import { Button, Input, Spinner, Textarea } from "../../generic";
 
 import { usePostData } from "./hooks";
 
@@ -17,9 +17,14 @@ import { Post } from "../../../Models";
 type PostFormProps = {
   postId?: string;
   onSubmit: (post: Post) => void;
+  isLoading: boolean;
 };
 
-export const PostForm: FC<PostFormProps> = ({ postId, onSubmit }) => {
+export const PostForm: FC<PostFormProps> = ({
+  postId,
+  onSubmit,
+  isLoading,
+}) => {
   const { postState, error, handlePostDataChange } = usePostData(postId);
 
   const handleInputChange = (
@@ -77,7 +82,7 @@ export const PostForm: FC<PostFormProps> = ({ postId, onSubmit }) => {
       {isFormDisabled && <ErrorWrapper>{error}</ErrorWrapper>}
       <ButtonWrapper>
         <Button disabled={isFormDisabled} onClick={handleSubmit}>
-          Save Post
+          {isLoading ? <Spinner /> : "Save Post"}
         </Button>
       </ButtonWrapper>
     </PostFormWrapper>

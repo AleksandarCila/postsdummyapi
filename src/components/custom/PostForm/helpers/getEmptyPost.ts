@@ -7,7 +7,7 @@ export const getEmptyPost = (): Post => {
     image: "",
     likes: 0,
     link: "",
-    tags: [],
+    tags: [""],
     publishDate: "",
     owner: {} as UserPreview,
   };

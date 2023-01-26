@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledButton = styled.button`
   padding: 10px;
   font-size: 16px;
+  width:100%;
   background-color: ${(props) => ` ${props.theme.colors.primary}`};
 
   color: ${(props) => (props.disabled ? "lightgray" : "inherit")};

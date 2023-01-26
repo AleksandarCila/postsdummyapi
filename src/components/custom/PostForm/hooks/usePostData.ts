@@ -12,6 +12,7 @@ export const usePostData = (postId?: string) => {
 
   const handlePostDataChange = (key: string, formValue: string) => {
     const { value } = validateFormValue(key, formValue);
+    
 
     setPostState((prev) => ({ ...prev, [key]: value }));
     setError(error);

@@ -1,29 +1,22 @@
 import { useParams } from "react-router-dom";
-import { useUpdatePost } from "../../api";
+
+import { useSubmitUpdatePost } from "./hooks";
 
 import { Layout, PostForm, Title } from "../../components";
-import { Post } from "../../Models";
 
 export const EditPost = () => {
   const { id } = useParams();
 
-  const { mutate, isLoading, error } = useUpdatePost(id || "");
-
-  const handleEditPostSubmit = (post: Post) => {
-    const postCreateData: Post = {
-      ...post,
-      //@ts-ignore
-      tags: post.tags.split(","),
-    };
-
-    mutate(postCreateData);
-  };
-
+  const { isLoading, handleEditPostSubmit } = useSubmitUpdatePost(id);
   return (
     <Layout>
       <Title title="Edit post" />
       <hr />
-      <PostForm postId={id} onSubmit={handleEditPostSubmit} />
+      <PostForm
+        postId={id}
+        onSubmit={handleEditPostSubmit}
+        isLoading={isLoading}
+      />
     </Layout>
   );
 };

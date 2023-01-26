@@ -13,6 +13,10 @@ export const fetchDummyApi = async <T>(
     ...body,
   });
 
-  if (!res.ok) throw Error(res.statusText);
+  if (!res.ok) {
+    const code = res.status;
+    const error = await res.json();
+    throw Error(`${code} - ${error.error}`);
+  }
   return (await res.json()) as T;
 };

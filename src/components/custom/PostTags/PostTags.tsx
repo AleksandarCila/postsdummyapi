@@ -9,9 +9,11 @@ type PostTagsProps = {
 export const PostTags: FC<PostTagsProps> = ({ tags }) => {
   return (
     <TagsWrapper>
-      {tags.map((tag, ind) => (
-        <Tag key={`${tag}${ind}`}>{tag}</Tag>
-      ))}
+      {tags
+        .filter((tag) => tag.length > 0)
+        .map((tag, ind) => (
+          <Tag key={`${tag}${ind}`}>{tag}</Tag>
+        ))}
     </TagsWrapper>
   );
 };

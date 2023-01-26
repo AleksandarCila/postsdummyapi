@@ -67,5 +67,6 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding:20px;
-  width:100%;
+  width:200px;
+  align-self:center;
   `;

@@ -6,15 +6,14 @@ export const SpinnerWrapper = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
 `
 
 export const SpinnerComponent = styled.div`
-  border: 6px solid #f3f3f3; /* Light grey */
-  border-top: 6px solid #3498db; /* Blue */
+  border: 2px solid #f3f3f3; /* Light grey */
+  border-top: 2px solid #3498db; /* Blue */
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   animation: spin 2s linear infinite;
 
   @keyframes spin {

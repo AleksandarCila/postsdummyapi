@@ -27,7 +27,7 @@ export const validateFormValue = (key: string, value: string) => {
     },
 
     [POST_KEYS.tags]: (value: string) => {
-      return { value: value, error: "" };
+      return { value: [value], error: "" };
     },
   };
 
